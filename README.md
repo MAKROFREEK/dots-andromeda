@@ -1,3 +1,5 @@
+having a hard time setting up my bare repo, rn the zip has all the dots
+
 letshavekiddos's dots
 
 O
