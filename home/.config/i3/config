@@ -1,0 +1,258 @@
+# Please see http://i3wm.org/docs/userguide.html for a complete reference!
+#heres this >>> /usr/share/doc/manjaro/i3_help.pdf <<<<
+
+set $mod Mod4
+workspace_layout default
+workspace 4 output HDMI-0
+default_border none
+default_floating_border none
+hide_edge_borders both
+font xft:Iosevka 11
+
+# AUTOSTART APPLICATIONS
+
+# important
+exec --no-startup-id xrandr --output DP-0 --off --output DP-1 --off --output HDMI-0 --mode 1920x1080 --pos 0x0 --above DP-2 --rotate normal --output DP-2 --primary --mode 1920x1080 --rate 239.76 --pos 0x1080 --rotate normal --output DP-3 --off --output DP-4 --off --output DP-5 --off --output USB-C-0 --off
+exec --no-startup-id feh --bg-scale ~/Pictures/Backgrounds/2.png --bg-scale ~/Pictures/Backgrounds/1.png
+exec_always --no-startup-id python ~/.config/i3/plugins/alternating-layout
+exec_always --no-startup-id python ~/.config/i3/plugins/window-swallowing
+exec --no-startup-id compton -b 
+
+# other
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id nm-applet
+exec_always --no-startup-id ff-theme-util
+exec_always --no-startup-id fix_xcursor
+exec xset +fp ~/.fonts/misc/
+exec_always killall polybar; polybar main 
+
+#KEY BINDINGS
+
+floating_modifier $mod 
+bindsym $mod+y border pixel 0
+bindsym $mod+e exec kitty ranger; exec notify-send -u low "launched file manager"   
+bindsym $mod+Shift+e exec thunar; exec notify-send -u low "launched file manager"   
+bindsym $mod+Shift+d --release exec killall dunst; exec notify-send -u low "restart dunst"   
+bindsym Print exec --no-startup-id spectacle 
+bindsym $mod+Print exec --no-startup-id spectacle 
+bindsym $mod+space exec killall dunst; exec rofi -no-config -no-lazy-grab -show drun -modi drun -show-icons -theme ~/.config/rofi/andromeda.rasi 
+bindsym $mod+Return exec kitty; exec notify-send -u low "launched terminal"
+bindsym $mod+c kill; exec notify-send -u low "closed window"
+bindsym $mod+p exec --no-startup-id ~/.config/i3/plugins/promote-window; exec notify-send -u low "window promoted"
+
+bindsym $mod+0 exec ~/.config/polybar/scripts/powermenu.sh ### exec ~/.config/polybar/scripts/uptime.sh
+
+bindsym $mod+Shift+c reload; exec notify-send -u low "i3 config reloaded" &
+bindsym $mod+Shift+r restart; sleep 10 & notify-send -u low "i3 restarted"
+bindsym $mod+Shift+p exec python ~/.config/i3/plugins/alternating-layout; exec python ~/.config/i3/plugins/window-swallowing;
+focus_follows_mouse yes
+
+# change focus
+bindsym $mod+j focus left; exec notify-send -u low "focus left"
+bindsym $mod+k focus down; exec notify-send -u low "focus down"
+bindsym $mod+l focus up; exec notify-send -u low "focus up"
+bindsym $mod+semicolon focus right; exec notify-send -u low "focus right"
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left; exec notify-send -u low "focus left"
+bindsym $mod+Down focus down; exec notify-send -u low "focus down"
+bindsym $mod+Up focus up; exec notify-send -u low "focus up"
+bindsym $mod+Right focus right; exec notify-send -u low "focus right"
+
+# move focused window
+bindsym $mod+Shift+j move left; exec notify-send -u low "moved left"
+bindsym $mod+Shift+k move down; exec notify-send -u low "moved down"
+bindsym $mod+Shift+l move up; exec notify-send -u low "moved up"
+bindsym $mod+Shift+semicolon move right; exec notify-send -u low "moved right"
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left; exec notify-send -u low "moved left"
+bindsym $mod+Shift+Down move down; exec notify-send -u low "moved down"
+bindsym $mod+Shift+Up move up; exec notify-send -u low "moved up"
+bindsym $mod+Shift+Right move right; exec notify-send -u low "moved right"
+
+# split orientation
+bindsym $mod+h split h;exec notify-send -u low "tiled horizontally"
+bindsym $mod+v split v;exec notify-send -u low "tiled vertically"
+
+# toggle fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle; exec notify-send -u low "fullscreen"
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+F3 layout stacking; exec notify-send -u low "stacked"
+bindsym $mod+F2 layout tabbed; exec notify-send -u low "tabbed"
+bindsym $mod+F1 layout toggle split; exec notify-send -u low "split"
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle; exec send-notify "float toggle"
+
+# change focus between tiling / floating windows
+#bindsym $mod+space focus mode_toggle
+
+# toggle sticky
+bindsym $mod+Shift+s sticky toggle; exec notify-send -u low "sticky toggle"
+
+#navigate workspaces next / previous
+bindsym $mod+Ctrl+Right workspace next; exec notify-send -u low "workspace right"
+bindsym $mod+Ctrl+Left workspace prev; exec notify-send -u low "workspace left"
+
+#navigate workspaces next / previous alt
+bindsym $mod+Ctrl+semicolon workspace next; exec notify-send -u low "workspace right"
+bindsym $mod+Ctrl+j workspace prev; exec notify-send -u low "workspace left"
+
+# Workspace names
+set $ws1 1
+set $ws2 2
+set $ws3 3
+set $ws4 4
+set $ws5 5
+set $ws6 6
+set $ws7 7
+set $ws8 8
+
+# switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+
+# Move focused container to workspace
+bindsym $mod+Ctrl+1 move container to workspace $ws1
+bindsym $mod+Ctrl+2 move container to workspace $ws2
+bindsym $mod+Ctrl+3 move container to workspace $ws3
+bindsym $mod+Ctrl+4 move container to workspace $ws4
+bindsym $mod+Ctrl+5 move container to workspace $ws5
+bindsym $mod+Ctrl+6 move container to workspace $ws6
+bindsym $mod+Ctrl+7 move container to workspace $ws7
+bindsym $mod+Ctrl+8 move container to workspace $ws8
+
+# Move to workspace with focused container
+bindsym $mod+Shift+1 move container to workspace $ws1; workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2; workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3; workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4; workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5; workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6; workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7; workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
+
+# tiling rules 
+for_window [window_role="About"]                        floating enable
+for_window [window_role="pop-up"]                       floating enable
+for_window [window_role="bubble"]                       floating enable 
+for_window [window_role="task_dialog"]                  floating enable
+for_window [window_role="Preferences"]                  floating enable
+for_window [window_type="dialog"]                       floating enable 
+for_window [window_type="menu"]                         floating enable
+for_window [window_type="spectacle"]                    floating enable
+for_window [window_type="save_as"]                      floating enable
+for_window [class="[.]*"]                               floating disable
+
+# switch to workspace with urgent window automatically
+for_window [urgent=latest] focus
+
+# Resize window (you can also use the mouse for that)
+bindsym $mod+r mode "resize"
+mode "resize" {
+        # Pressing down will grow the window’s height.
+        bindsym j resize shrink width 5 px or 5 ppt
+        bindsym k resize grow height 5 px or 5 ppt
+        bindsym l resize shrink height 5 px or 5 ppt
+        bindsym semicolon resize grow width 5 px or 5 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt0
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # exit resize mode: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+Mod1+j resize shrink width 5 px or 5 ppt
+bindsym $mod+Mod1+k resize grow height 5 px or 5 ppt
+bindsym $mod+Mod1+l resize shrink height 5 px or 5 ppt
+bindsym $mod+Mod1+semicolon resize grow width 5 px or 5 ppt
+
+# Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying outer/inner gaps. Press one of + / - (in-/decrement for current workspace) or 0 (remove gaps for current workspace). If you also press Shift with these keys, the change will be global for all workspaces.
+set $mode_gaps Gaps: (o) outer, (i) inner
+set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
+set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+bindsym $mod+Shift+g mode "$mode_gaps"
+
+mode "$mode_gaps" {
+        bindsym o      mode "$mode_gaps_outer"
+        bindsym i      mode "$mode_gaps_inner"
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+mode "$mode_gaps_inner" {
+        bindsym plus  gaps inner current plus 5
+        bindsym minus gaps inner current minus 5
+        bindsym 0     gaps inner current set 0
+
+        bindsym Shift+plus  gaps inner all plus 5
+        bindsym Shift+minus gaps inner all minus 5
+        bindsym Shift+0     gaps inner all set 0
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+mode "$mode_gaps_outer" {
+        bindsym plus  gaps outer current plus 5
+        bindsym minus gaps outer current minus 5
+        bindsym 0     gaps outer current set 0
+
+        bindsym Shift+plus  gaps outer all plus 5
+        bindsym Shift+minus gaps outer all minus 5
+        bindsym Shift+0     gaps outer all set 0
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+set_from_resource $term_background background
+set_from_resource $term_foreground foreground
+set_from_resource $term_color0     color0
+set_from_resource $term_color1     color1
+set_from_resource $term_color2     color2
+set_from_resource $term_color3     color3
+set_from_resource $term_color4     color4
+set_from_resource $term_color5     color5
+set_from_resource $term_color6     color6
+set_from_resource $term_color7     color7
+set_from_resource $term_color8     color8
+set_from_resource $term_color9     color9
+set_from_resource $term_color10    color10
+set_from_resource $term_color11    color11
+set_from_resource $term_color12    color12
+set_from_resource $term_color13    color13
+set_from_resource $term_color14    color14
+set_from_resource $term_color15    color15
+
+# Set inner/outer gaps
+gaps inner 10
+gaps outer -1
+
+# Smart gaps (gaps used if only more than one container on the workspace)
+smart_gaps on
+
+# Smart borders (draw borders around container only if it is not the only container on this workspace) 
+# on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
+smart_borders no_gaps
+
+# i3 border colors
+# class                 border  backgr. text    indicator child_border
+client.focused          #e1e3e4 #e1e3e4 #e1e3e4 #e1e3e4   #e1e3e4
+client.focused_inactive #282A3A #282A3A #e1e3e4 #282A3A   #282A3A
+client.unfocused        #282A3A #282A3A #e1e3e4 #282A3A   #282A3A
+client.urgent           #282A3A #fb617e #7e8294 #fb617e   #fb617e
+client.placeholder      #282A3A #282A3A #e1e3e4 #282A3A   #282A3A
+
+client.background       #e1e3e4

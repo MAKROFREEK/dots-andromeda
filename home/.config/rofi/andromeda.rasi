@@ -1,0 +1,57 @@
+* {
+    background-color: #282A3A;
+    color: #7e8294;
+    font: "Segoe UI 11";
+}
+
+#window {
+    /*anchor: north;*/
+    location: north west;
+    width: 1730px;
+    padding: -6px 10px;
+    children: [ horibox ];
+}
+
+#horibox {
+    orientation: horizontal;
+    children:   [ sidebar, entry, listview ];
+}
+
+#listview {
+    layout: horizontal;
+    padding: 0px 0;
+    spacing: 1px;
+    lines: 100;
+}
+
+#sidebar {
+
+}
+
+#prompt {
+    padding: 6px 0px 0px 24px;
+}
+
+#entry {
+    color: #e1e3e4;
+    expand: false;
+    width: 10em;
+    padding: 5   px 10px 0px -6px;
+    placeholder: "Search...";
+}
+
+#element {
+    margin: 0px 5px;
+    padding: 6px 2px;
+}
+
+#element selected {
+    color: #e1e3e4;
+}
+
+#button {
+    font: "Segoe UI 1 ";
+    width: 0;
+    text-color: #282A3A;
+}
+
