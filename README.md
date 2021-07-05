@@ -12,6 +12,10 @@ screenshots:
 
 polybar workflow:
 
-<blockquote class="imgur-embed-pub" lang="en" data-id="gInQSfC" data-context="false" ><a href="//imgur.com/gInQSfC"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+
+
+https://user-images.githubusercontent.com/84992148/124403363-99ca3500-dcfb-11eb-9ff9-d25c34f2d6d1.mov
+
+
 
 
