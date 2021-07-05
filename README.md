@@ -12,6 +12,6 @@ screenshots:
 
 polybar workflow:
 
-https://imgur.com/gInQSfCO
+![video](https://imgur.com/gInQSfC)
 
 
