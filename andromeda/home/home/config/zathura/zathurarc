@@ -1,0 +1,45 @@
+map j scroll left
+map k scroll down
+map l scroll up 
+map ; scroll right
+
+set notification-error-bg       "#282A3A" # bg
+set notification-error-fg       "#fb617e" # bright:red
+set notification-warning-bg     "#282A3A" # bg
+set notification-warning-fg     "#f0c362" # bright:yellow
+set notification-bg             "#282A3A" # bg
+set notification-fg             "#9ed06c" # bright:green
+
+set completion-bg               "#393e53" # bg2
+set completion-fg               "#e1e3e4" # fg
+set completion-group-bg         "#3a3e4e" # bg1
+set completion-group-fg         "#7e8294" # gray 
+set completion-highlight-bg     "#B8DEE6" # bright:blue
+set completion-highlight-fg     "#393e53" # bg2
+
+# Define the color in index mode
+set index-bg                    "#393e53" # bg2
+set index-fg                    "#e1e3e4" # fg
+set index-active-bg             "#6dcae8" # bright:blue
+set index-active-fg             "#393e53" # bg2
+
+set inputbar-bg                 "#282A3A" # bg
+set inputbar-fg                 "#e1e3e4" # fg
+
+set statusbar-bg                "#393e53" # bg2
+set statusbar-fg                "#e1e3e4" # fg
+
+set highlight-color             "#3f445b" # bright:yellow
+set highlight-active-color      "#f89860" # bright:orange
+
+set default-bg                  "#282A3A" # bg
+set default-fg                  "#e1e3e4" # fg
+set render-loading              true
+set render-loading-bg           "#282A3A" # bg
+set render-loading-fg           "#e1e3e4" # fg
+
+# Recolor book content's color
+set recolor-lightcolor          "#282A3A" # bg
+set recolor-darkcolor           "#e1e3e4" # fg
+set recolor                     "true"
+# set recolor-keephue            true      # keep original color
