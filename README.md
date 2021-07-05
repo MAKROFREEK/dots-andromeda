@@ -1,6 +1,6 @@
 letshavekiddos's dots
 
-
+O
 screenshots:
 
 ![image](https://github.com/LetsHaveKiddos/dots-andromeda/blob/main/Screenshot_20210704_163534.png)
@@ -12,6 +12,6 @@ screenshots:
 
 polybar workflow:
 
-![webp](https://imgur.com/gInQSfC)
+<blockquote class="imgur-embed-pub" lang="en" data-id="gInQSfC" data-context="false" ><a href="//imgur.com/gInQSfC"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
 
 
