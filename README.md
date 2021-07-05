@@ -12,6 +12,6 @@ screenshots:
 
 polybar workflow:
 
-![video](https://imgur.com/gInQSfCO)
+https://imgur.com/gInQSfCO
 
-[![Video example of polybar](https://github.com/LetsHaveKiddos/dots-andromeda/blob/main/Screenshot_20210704_183240.png)](https://imgur.com/gInQSfCO)
+
