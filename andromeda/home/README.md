@@ -1,8 +1,5 @@
-#########################################
-######letshavekiddos andromeda ##########
 ######LetsHaveKiddos Andromeda ##########
-######LETSHAVEKIDDOS ANDROMEDA ##########
-#########################################
+
 
 OS: Archcraft xfce (i had to install i3 as its my favorite wm)
 
