@@ -12,4 +12,4 @@ screenshots:
 
 polybar workflow:
 
-[![Watch the video](https://imgur.com/gInQSfC)
+![video](https://imgur.com/gInQSfCO)
